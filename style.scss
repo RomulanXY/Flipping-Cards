@@ -1,0 +1,480 @@
+$light: #f3f3f3;
+$dark: #212121;
+$primary: pink;
+$secondary: orange;
+$grey: rgb(64, 105, 110);
+$lightgrey: rgba(64, 105, 110, 0.6);
+
+
+*{
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    background-color: $grey;
+    height: 100vh;
+}
+
+header {
+    justify-content: space-around;
+    display: flex;
+    align-items: center;
+    height: 8vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        margin: 0 auto;
+        width: 100%;
+        justify-content: center;
+        li {
+            margin: 10px;
+            a {
+                color: $light;
+                font-weight: 600;
+                text-decoration: none;
+                padding: 10px 20px;
+                letter-spacing: 2px;
+                font-size: 15px;
+            }
+            a:hover {
+                background: linear-gradient(150deg, grey, $dark);
+                box-shadow: 1px 1px 2px $dark;
+                padding: 10px 20px;
+                border-radius: 50px;
+                letter-spacing: 2px;
+                font-size: 15px;
+                font-weight: 600;
+                color: $light;
+            }
+        }
+    }
+}
+.major_container {
+    width: 100%;
+    .music_player {
+        color: $dark;
+        background-color: $light;
+        width: 25%;
+        height: 30vh;
+        padding: 5px 0;
+        border-radius: 20px;
+        position: fixed;
+        bottom: 3px;
+        left: 3px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .input_div {
+            width: 100%;
+        }
+        input {
+            width: 60%;
+            margin: 0 auto;
+            border-radius: 50px;
+            outline: none;
+            border: none;
+            height: 35px;
+            color: black;
+            background-color: white;
+            text-align: center;
+            font-size: small;
+        }
+        input:hover {
+            background: linear-gradient(to bottom left, $primary, $secondary);
+            color: black !important;
+            font-size: small;
+        }
+        input:focus {
+            background-color: $lightgrey;
+            color: $light;
+            font-size: small;
+        }
+        .music_list {
+            list-style-type: none;
+            overflow-y: scroll;
+            height: 20vh;
+            li {
+            margin: 10px 0;
+            
+                a {
+                    text-decoration: none;
+                    color: $dark;
+                    padding: 8px 10px;
+                    border-radius: 50px;
+                    transition: all 0.4s ease;
+                }
+                a:hover {
+                    background: linear-gradient(to bottom left, $primary, $secondary);
+                }
+            }
+        }
+        .music_list::-webkit-scrollbar{
+            width: 0;
+        }
+        .player_part {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .burger_container {
+                cursor: pointer;
+                margin-bottom: 4px;
+                margin-left: 8px;
+                .burger {
+                    background-color: black;
+                    padding: 1px 8px;
+                    margin: 3px 10px 3px 5px;
+                    border-radius: 50px;
+                    transform: translate(-50%);
+                    cursor: pointer;
+                }
+            }
+            .audio_player {
+                audio {
+                    outline: none;
+                    width: 200px;
+                }
+            }
+        }
+    }
+}
+.main_container {
+    overflow-y: hidden;
+    margin: 0 auto;
+    h1 {
+        position: absolute;
+        width: 50%;
+        margin: 2vh auto;
+        color: $light;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 4vh auto 0 auto;
+        .card {
+            width: 200px;
+            height: 250px;
+            perspective: 1000px;
+            margin: 30px 30px;
+            .card_inner {
+                width: 100%;
+                height: 100%;
+                transition: all 1.5s ease;
+                transform-style: preserve-3d;
+                cursor: pointer;
+                position: absolute;
+                .card_face--front {
+                    background-image: linear-gradient(to bottom right, $primary, $secondary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                    position: absolute;
+                    border-radius: 16px;
+                    h3 {
+                        color: $dark;
+                        width: 68%;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                }
+                .card_face--back {
+                    background-color: $dark;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; 
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                    position: absolute;
+                    border-radius: 16px;
+                    transform: rotateY(180deg);
+                    .card_content {
+                        width: 100%;
+                        height: 100%;
+                        font-size: 10px;
+                        .card_header {
+                            text-align: center;
+                            background-image: linear-gradient(to bottom left, $primary 10%, $secondary 115%);
+                            margin: 0 auto;
+                            color: $dark;
+                            border-radius: 16px 16px 30px 0px;
+                            padding: 10px 10px 20px;
+                            min-width: fit-content;
+                        }
+                        .card_body {
+                            width: 70%;
+                            margin: 20px auto 30px;
+                            text-align: center;
+                            color: $light;
+                            button {
+                                margin-top: 10px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            .card_inner:hover {
+                transform: rotateY(180deg);
+            }
+        }
+    }
+}
+.game_cards {
+    margin: 0 auto;
+    .container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 0 auto;
+        .card {
+            width: 200px;
+            height: 250px;
+            perspective: 1000px;
+            margin: 30px 30px;
+            .card_inner {
+                width: 100%;
+                height: 100%;
+                transition: all 1.5s ease;
+                transform-style: preserve-3d;
+                cursor: pointer;
+                position: absolute;
+                .card_face--front {
+                    background-image: linear-gradient(to bottom right, $primary, $secondary);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                    position: absolute;
+                    border-radius: 16px;
+                    h3 {
+                        color: $dark;
+                        width: 68%;
+                        margin: 0 auto;
+                        text-align: center;
+                    }
+                }
+                .card_face--back {
+                    background-color: $dark;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center; 
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                    position: absolute;
+                    border-radius: 16px;
+                    transform: rotateY(180deg);
+                    .card_content {
+                        width: 100%;
+                        height: 100%;
+                        font-size: 10px;
+                        .card_header {
+                            text-align: center;
+                            background-image: linear-gradient(to bottom left, $primary 10%, $secondary 115%);
+                            margin: 0 auto;
+                            color: $dark;
+                            border-radius: 16px 16px 30px 0px;
+                            padding: 10px 10px 20px;
+                            min-width: fit-content;
+                        }
+                        .card_body {
+                            width: 70%;
+                            margin: 20px auto 30px;
+                            text-align: center;
+                            color: $light;
+                            button {
+                                margin-top: 10px;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
+            }
+            .card_inner:hover {
+                transform: rotateY(180deg);
+            }
+        }
+    }          
+}
+.game_area {
+    position: absolute;
+    
+    margin: 0 10vh;
+    width: 50%;
+    height: 400px;
+    padding: 20px 0;
+    background-color: $light;
+    color: $dark;
+    margin: 0 auto;
+    border-radius: 20px 20px 20px 20px;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 10px 10px 30px -8px rgba(0, 0, 0, 0.5);
+    h1 {
+        font-size: xx-large;
+    }
+    .btn_div {
+        position: absolute;
+        top: 180px;
+        left: 10%;
+        right: 10%;
+    }
+    .btn {
+        cursor: pointer;
+        padding: 10px 20px;
+        margin-top: 40px;
+        
+    }
+    .solution_input {
+        display: none;
+    }
+    .dyk_container {
+        position: absolute;
+        bottom: 0px;
+        background: linear-gradient(to bottom left, $primary, $secondary);
+        width: 100%;
+        min-height: fit-content;
+        text-align: center;
+        color: $dark;
+        padding: 5% 0;
+        border-radius: 0px 0 20px 20px;
+    }
+}
+@keyframes fade_nav_links {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+// .main_container {
+//     display: none;
+// }
+
+// @media screen and (max-width: 1024px){
+//     body {
+//         overflow-x: hidden;
+//     }
+//     .navbar_list{
+//         position: absolute;
+//         right: 0px;
+//         height: 87vh;
+//         top: 13vh;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         width: 50%;
+//         justify-content: space-around;
+//         background-color: $grey;
+//         transform: translateX(100%);
+//     }
+//     .navbar_list li {
+//         opacity: 0;
+//     }
+//     .nav-active {
+//         transform: translateX(0%);
+//     }
+//     .burger_menu {
+//         display: block;
+//         position: absolute;
+//         right: 5%;
+//         cursor: pointer;
+//     }
+//     .burger_menu div{
+//     width: 25px;
+//     height: 3px;
+//     background-color: $light;
+//     margin: 5px 0;
+//     }
+// }
+
+// @media screen and (max-width: 768px){
+//     .navbar_list{
+//         position: absolute;
+//         right: 0px;
+//         height: 87vh;
+//         top: 13vh;
+//         display: flex;
+//         flex-direction: column;
+//         align-items: center;
+//         width: 100%;
+//         background-color: $grey;
+//         transform: translateX(100%);
+//     }
+//     .navbar_list li {
+//         opacity: 0;
+//     }
+//     .nav-active {
+//         transform: translateX(0%);
+//     }
+//     .burger_menu {
+//         display: block;
+//         position: absolute;
+//         right: 5%;
+//         cursor: pointer;
+//     }
+//     .burger_menu div{
+//         width: 25px;
+//         height: 3px;
+//         background-color: $light;
+//         margin: 5px 0;
+//     }
+// }
+
+// @media (max-width: 600px) {
+//     .form_container {
+//         max-width: 100%;
+//         margin: 0 auto;
+//         .mini_container {
+//             border-radius: 0;
+//             h2 {
+//                 padding-bottom: 20px
+//             }
+//             .form {
+//                 .user_details {
+//                     display: block;
+//                     max-height: 60vh;
+//                     overflow-y: scroll;
+//                     .form_control {
+//                         width: 90%;
+//                     }
+//                 }
+//                 .user_details::-webkit-scrollbar {
+//                     width: 0;
+//                 }
+//             }
+//         }
+//     }
+// }

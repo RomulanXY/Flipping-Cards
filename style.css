@@ -1,0 +1,373 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Verdana, sans-serif;
+  background-color: #40696e;
+  height: 100vh;
+}
+
+header {
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+  height: 8vh;
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+header ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+}
+header ul li {
+  margin: 10px;
+}
+header ul li a {
+  color: #f3f3f3;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 10px 20px;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+header ul li a:hover {
+  background: linear-gradient(150deg, grey, #212121);
+  box-shadow: 1px 1px 2px #212121;
+  padding: 10px 20px;
+  border-radius: 50px;
+  letter-spacing: 2px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #f3f3f3;
+}
+
+.major_container {
+  width: 100%;
+}
+.major_container .music_player {
+  color: #212121;
+  background-color: #f3f3f3;
+  width: 25%;
+  height: 30vh;
+  padding: 5px 0;
+  border-radius: 20px;
+  position: fixed;
+  bottom: 3px;
+  left: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.major_container .music_player .input_div {
+  width: 100%;
+}
+.major_container .music_player input {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  height: 35px;
+  color: black;
+  background-color: white;
+  text-align: center;
+  font-size: small;
+}
+.major_container .music_player input:hover {
+  background: linear-gradient(to bottom left, pink, orange);
+  color: black !important;
+  font-size: small;
+}
+.major_container .music_player input:focus {
+  background-color: rgba(64, 105, 110, 0.6);
+  color: #f3f3f3;
+  font-size: small;
+}
+.major_container .music_player .music_list {
+  list-style-type: none;
+  overflow-y: scroll;
+  height: 20vh;
+}
+.major_container .music_player .music_list li {
+  margin: 10px 0;
+}
+.major_container .music_player .music_list li a {
+  text-decoration: none;
+  color: #212121;
+  padding: 8px 10px;
+  border-radius: 50px;
+  transition: all 0.4s ease;
+}
+.major_container .music_player .music_list li a:hover {
+  background: linear-gradient(to bottom left, pink, orange);
+}
+.major_container .music_player .music_list::-webkit-scrollbar {
+  width: 0;
+}
+.major_container .music_player .player_part {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.major_container .music_player .player_part .burger_container {
+  cursor: pointer;
+  margin-bottom: 4px;
+  margin-left: 8px;
+}
+.major_container .music_player .player_part .burger_container .burger {
+  background-color: black;
+  padding: 1px 8px;
+  margin: 3px 10px 3px 5px;
+  border-radius: 50px;
+  transform: translate(-50%);
+  cursor: pointer;
+}
+.major_container .music_player .player_part .audio_player audio {
+  outline: none;
+  width: 200px;
+}
+
+.main_container {
+  overflow-y: hidden;
+  margin: 0 auto;
+}
+.main_container h1 {
+  position: absolute;
+  width: 50%;
+  margin: 2vh auto;
+  color: #f3f3f3;
+}
+.main_container .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 4vh auto 0 auto;
+}
+.main_container .container .card {
+  width: 200px;
+  height: 250px;
+  perspective: 1000px;
+  margin: 30px 30px;
+}
+.main_container .container .card .card_inner {
+  width: 100%;
+  height: 100%;
+  transition: all 1.5s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: absolute;
+}
+.main_container .container .card .card_inner .card_face--front {
+  background-image: linear-gradient(to bottom right, pink, orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 16px;
+}
+.main_container .container .card .card_inner .card_face--front h3 {
+  color: #212121;
+  width: 68%;
+  margin: 0 auto;
+  text-align: center;
+}
+.main_container .container .card .card_inner .card_face--back {
+  background-color: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 16px;
+  transform: rotateY(180deg);
+}
+.main_container .container .card .card_inner .card_face--back .card_content {
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+}
+.main_container .container .card .card_inner .card_face--back .card_content .card_header {
+  text-align: center;
+  background-image: linear-gradient(to bottom left, pink 10%, orange 115%);
+  margin: 0 auto;
+  color: #212121;
+  border-radius: 16px 16px 30px 0px;
+  padding: 10px 10px 20px;
+  min-width: fit-content;
+}
+.main_container .container .card .card_inner .card_face--back .card_content .card_body {
+  width: 70%;
+  margin: 20px auto 30px;
+  text-align: center;
+  color: #f3f3f3;
+}
+.main_container .container .card .card_inner .card_face--back .card_content .card_body button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+.main_container .container .card .card_inner:hover {
+  transform: rotateY(180deg);
+}
+
+.game_cards {
+  margin: 0 auto;
+}
+.game_cards .container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 0 auto;
+}
+.game_cards .container .card {
+  width: 200px;
+  height: 250px;
+  perspective: 1000px;
+  margin: 30px 30px;
+}
+.game_cards .container .card .card_inner {
+  width: 100%;
+  height: 100%;
+  transition: all 1.5s ease;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: absolute;
+}
+.game_cards .container .card .card_inner .card_face--front {
+  background-image: linear-gradient(to bottom right, pink, orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 16px;
+}
+.game_cards .container .card .card_inner .card_face--front h3 {
+  color: #212121;
+  width: 68%;
+  margin: 0 auto;
+  text-align: center;
+}
+.game_cards .container .card .card_inner .card_face--back {
+  background-color: #212121;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  position: absolute;
+  border-radius: 16px;
+  transform: rotateY(180deg);
+}
+.game_cards .container .card .card_inner .card_face--back .card_content {
+  width: 100%;
+  height: 100%;
+  font-size: 10px;
+}
+.game_cards .container .card .card_inner .card_face--back .card_content .card_header {
+  text-align: center;
+  background-image: linear-gradient(to bottom left, pink 10%, orange 115%);
+  margin: 0 auto;
+  color: #212121;
+  border-radius: 16px 16px 30px 0px;
+  padding: 10px 10px 20px;
+  min-width: fit-content;
+}
+.game_cards .container .card .card_inner .card_face--back .card_content .card_body {
+  width: 70%;
+  margin: 20px auto 30px;
+  text-align: center;
+  color: #f3f3f3;
+}
+.game_cards .container .card .card_inner .card_face--back .card_content .card_body button {
+  margin-top: 10px;
+  cursor: pointer;
+}
+.game_cards .container .card .card_inner:hover {
+  transform: rotateY(180deg);
+}
+
+.game_area {
+  position: absolute;
+  margin: 0 10vh;
+  width: 50%;
+  height: 400px;
+  padding: 20px 0;
+  background-color: #f3f3f3;
+  color: #212121;
+  margin: 0 auto;
+  border-radius: 20px 20px 20px 20px;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 10px 10px 30px -8px rgba(0, 0, 0, 0.5);
+}
+.game_area h1 {
+  font-size: xx-large;
+}
+.game_area .btn_div {
+  position: absolute;
+  top: 180px;
+  left: 10%;
+  right: 10%;
+}
+.game_area .btn {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin-top: 40px;
+}
+.game_area .solution_input {
+  display: none;
+}
+.game_area .dyk_container {
+  position: absolute;
+  bottom: 0px;
+  background: linear-gradient(to bottom left, pink, orange);
+  width: 100%;
+  min-height: fit-content;
+  text-align: center;
+  color: #212121;
+  padding: 5% 0;
+  border-radius: 0px 0 20px 20px;
+}
+
+@keyframes fade_nav_links {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/*# sourceMappingURL=style.css.map */
